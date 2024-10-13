@@ -332,7 +332,7 @@ def hierarchy_elbow(X):
 def hierarchy_dist(X):
     fig = go.Figure()
 
-    agg_cluster = AgglomerativeClustering(n_clusters=4, affinity='euclidean', linkage='ward')
+    agg_cluster = AgglomerativeClustering(n_clusters=4, metric='euclidean', linkage='ward')
     y_agg_cluster = agg_cluster.fit_predict(X)
     agg_cluster_dist = pd.concat(
         [pd.DataFrame(X, columns=['x', 'y']), pd.DataFrame(y_agg_cluster, columns=["cluster"])], axis=1)
