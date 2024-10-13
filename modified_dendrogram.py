@@ -6,6 +6,7 @@ from collections import OrderedDict
 
 from plotly import exceptions, optional_imports
 from plotly.graph_objs import graph_objs
+import numpy as np
 
 # Optional imports, may be None for users that only use our core functionality.
 np = optional_imports.get_module("numpy")
@@ -351,10 +352,10 @@ class _Dendrogram(object):
             **kwargs
         )
 
-        icoord = scp.array(P["icoord"])
-        dcoord = scp.array(P["dcoord"])
-        ordered_labels = scp.array(P["ivl"])
-        color_list = scp.array(P["color_list"])
+        icoord = np.array(P["icoord"])
+        dcoord = np.array(P["dcoord"])
+        ordered_labels = np.array(P["ivl"])
+        color_list = np.array(P["color_list"])
         colors = self.get_color_dict(colorscale)
 
         trace_list = []
